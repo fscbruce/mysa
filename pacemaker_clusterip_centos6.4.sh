@@ -167,4 +167,5 @@ select yn in "Yes" "No"; do
     esac
 done
 
+# this is a test addition from your fellow contributer
 echo "End of script. Send feedback to bd@dargus.co.uk, thanks."
