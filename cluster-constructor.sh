@@ -4,12 +4,12 @@
 #   Script written by Bruce Dargus for Xchanging Malaysia Sdn. Bhd.   #
 #                                                                     #
 #######################################################################
-# Project Title: cluster-config.sh
+# Project Title: cluster-constructor.sh
 # Purpose: This script is intended create a cluster from two CentOS 6.4 machines and create the resources necessary for a shared cluster IP (ocf:heartbeat:IPaddr2), high-availability webserving (ocf:heartbeat:apache). DRBD file replication (ocf:linbit:drbd) can be enabled afterwards, though the configuration of which must be done manually.
 # Requirements: CentOS 6.4 (tested on x64 minimal install), static network configuration, internet access
 clear
 
-_Usage='usage: cluster-config.sh <cluster name> <node1 hostname> <node1 ip> <node2 hostname> <node2 ip> <Cluster IP (optional)> <Cluster IP Netmask Prefix without slash  (optional)>'
+_Usage='usage: cluster-constructor.sh <cluster name> <node1 hostname> <node1 ip> <node2 hostname> <node2 ip> <Cluster IP (optional)> <Cluster IP Netmask Prefix without slash  (optional)>'
 echo "Pacemaker installation on CentOS 6.4 x64"
 echo "Script by Bruce Dargus for Xchanging Malaysia Sdn. Bhd. | 2013-06-24"
 echo
