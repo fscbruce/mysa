@@ -10,6 +10,12 @@
 clear
 
 _Usage='usage: cluster-constructor.sh <cluster name> <node1 hostname> <node1 ip> <node2 hostname> <node2 ip> <Cluster IP (optional)> <Cluster IP Netmask Prefix without slash  (optional)>'
+
+echo "  ___ _         _              ___             _               _           "
+echo " / __| |_  _ __| |_ ___ _ _   / __|___ _ _  __| |_ _ _ _  _ __| |_ ___ _ _ "
+echo "| (__| | || (_-<  _/ -_) '_| | (__/ _ \ ' \(_-<  _| '_| || / _|  _/ _ \ '_|"
+echo " \___|_|\_,_/__/\__\___|_|    \___\___/_||_/__/\__|_|  \_,_\__|\__\___/_|  "
+echo
 echo "Pacemaker installation on CentOS 6.4 x64"
 echo "Script by Bruce Dargus for Xchanging Malaysia Sdn. Bhd. | 2013-06-24"
 echo
