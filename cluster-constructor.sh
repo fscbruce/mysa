@@ -11,15 +11,15 @@ clear
 
 _Usage='usage: cluster-constructor.sh <cluster name> <node1 hostname> <node1 ip> <node2 hostname> <node2 ip> <Cluster IP (optional)> <Cluster IP Netmask Prefix without slash  (optional)>'
 
-echo "  ___ _         _              ___             _               _           "
-echo " / __| |_  _ __| |_ ___ _ _   / __|___ _ _  __| |_ _ _ _  _ __| |_ ___ _ _ "
-echo "| (__| | || (_-<  _/ -_) '_| | (__/ _ \ ' \(_-<  _| '_| || / _|  _/ _ \ '_|"
-echo " \___|_|\_,_/__/\__\___|_|    \___\___/_||_/__/\__|_|  \_,_\__|\__\___/_|  "
-echo
 echo "HA-ClusterIP and Web Server services installation via corosync, cman, pacemaker, apache, and optional DRBD"
 echo "Script by Bruce Dargus for Xchanging Malaysia Sdn. Bhd. | 2013-06-24"
 echo
 echo "Current system is `uname -or`"
+echo
+echo "  ___ _         _              ___             _               _           "
+echo " / __| |_  _ __| |_ ___ _ _   / __|___ _ _  __| |_ _ _ _  _ __| |_ ___ _ _ "
+echo "| (__| | || (_-<  _/ -_) '_| | (__/ _ \ ' \(_-<  _| '_| || / _|  _/ _ \ '_|"
+echo " \___|_|\_,_/__/\__\___|_|    \___\___/_||_/__/\__|_|  \_,_\__|\__\___/_|  "
 echo
 echo "This script has only been tested with CentOS 6.4 x64 minimal install. Use on systems at your own risk."
 
