@@ -74,7 +74,7 @@ done
 echo "Configure Linux firewall pass-through for cluster services?"
 select yn in "Yes" "No"; do
     case $yn in
-        Yes ) echo "   Configuring Linux firewall pass-through for cluster services..." && iptables -I INPUT 1 --protocol udp --dport 5405 -j ACCEPT && iptables -I INPUT 1 --protocol udp --sport 5404 -j ACCEPT && iptables -I OUTPUT 1 --protocol udp --dport 5405 -j ACCEPT && iptables -I OUTPUT 1 --protocol udp --sport 5404 -j ACCEPT && iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 11111 -j ACCEPT && iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 21064 -j ACCEPT && echo -n "      " && service iptables save && break;;
+        Yes ) echo "   Configuring Linux firewall pass-through for cluster services..." && iptables -I INPUT 1 --protocol udp --dport 5405 -j ACCEPT > /dev/null && iptables -I INPUT 1 --protocol udp --sport 5404 -j ACCEPT > /dev/null && iptables -I OUTPUT 1 --protocol udp --dport 5405 -j ACCEPT > /dev/null && iptables -I OUTPUT 1 --protocol udp --sport 5404 -j ACCEPT > /dev/null && iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 11111 -j ACCEPT > /dev/null && iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 21064 -j ACCEPT > /dev/null && echo -n "      " && service iptables save && break;;
         No ) break;;
     esac
 done
