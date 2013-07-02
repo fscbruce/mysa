@@ -155,6 +155,7 @@ done
 #[ $prefnode == "$2" ] && pcs resource move httpdc "$2" && pcs resource move ClusterIP "$2" 
 #[ $prefnode == "$4" ] && pcs resource move httpdc "$4" && pcs resource move ClusterIP "$4" 
 
+# Download and install DRBD 8.4.3 kernel module from source (script borrowed from LCMC)
 echo "Download and install DRBD 8.4.3 kernel module from source?"
 select yn in "Yes" "No"; do
     case $yn in
