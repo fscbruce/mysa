@@ -21,7 +21,7 @@ echo " / __| |_  _ __| |_ ___ _ _   / __|___ _ _  __| |_ _ _ _  _ __| |_ ___ _ _
 echo "| (__| | || (_-<  _/ -_) '_| | (__/ _ \ ' \(_-<  _| '_| || / _|  _/ _ \ '_|"
 echo " \___|_|\_,_/__/\__\___|_|    \___\___/_||_/__/\__|_|  \_,_\__|\__\___/_|  "
 echo
-echo "This script has only been tested with CentOS 6.4 x64 minimal install. Use on systems at your own risk."
+echo "This script has only been tested with CentOS 6.4 x64 minimal install. Use at your own risk."
 
 [ $# -eq 0 ] && echo $_Usage && echo && exit
 [ -z "$2" ] && echo $_Usage && echo && exit
