@@ -23,10 +23,6 @@ echo
 [ -z "$4" ] && echo $_Usage && echo && exit
 [ -z "$5" ] && echo $_Usage && echo && exit
 
-#Define variables
-#echo "We will now gather required information by asking you a series of questions."
-#echo ""
-
 echo "Cluster will be created: $1"
 echo "Node 1 hostname has been set to: $2"
 echo "Node 1 ip address has been set to: $3"
@@ -41,7 +37,7 @@ select yn in "Yes" "No"; do
     esac
 done
 
-#Distribution maintenance
+# Distribution maintenance
 echo "Performing distribution maintenance..."
 yum update -y
 
@@ -50,22 +46,23 @@ echo "Installing basic tools..."
 yum install pacemaker ccs pcs cman resource-agents wget man links nano dstat ntsysv -y
 
 echo "Cluster preflight..."
-	#Add node entries to hosts file
-	echo -n "   Adding node entries to hosts file..."
-	echo "$3 $2" >> /etc/hosts
-	echo "$5 $4" >> /etc/hosts
-	echo "done."
+# Preflight (hosts file, cluster.conf)
+echo "Add entries to hosts file?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) echo -n "   Adding node entries to hosts file..." && echo "$3 $2" >> /etc/hosts && echo "$5 $4" >> /etc/hosts && echo "done." && break;;
+        No ) break;;
+    esac
+done
 
 	#Creation of cluster.conf
-	echo "   Creating cluster.conf..."
-	ccs -f /etc/cluster/cluster.conf --create $1
-	echo -n "      " && ccs -f /etc/cluster/cluster.conf --addnode $2
-	echo -n "      " && ccs -f /etc/cluster/cluster.conf --addnode $4
-	ccs -f /etc/cluster/cluster.conf --addfencedev pcmk agent=fence_pcmk
-	echo -n "      " && ccs -f /etc/cluster/cluster.conf --addmethod pcmk-redirect $2
-	echo -n "      " && ccs -f /etc/cluster/cluster.conf --addmethod pcmk-redirect $4
-	ccs -f /etc/cluster/cluster.conf --addfenceinst pcmk $2 pcmk-redirect port=$2
-	ccs -f /etc/cluster/cluster.conf --addfenceinst pcmk $4 pcmk-redirect port=$4
+echo "Create cluster.conf?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) echo "   Creating cluster.conf..." && ccs -f /etc/cluster/cluster.conf --create $1 &&	echo -n "      " && ccs -f /etc/cluster/cluster.conf --addnode $2 && echo -n "      " && ccs -f /etc/cluster/cluster.conf --addnode $4 && ccs -f /etc/cluster/cluster.conf --addfencedev pcmk agent=fence_pcmk && echo -n "      " && ccs -f /etc/cluster/cluster.conf --addmethod pcmk-redirect $2 && echo -n "      " && ccs -f /etc/cluster/cluster.conf --addmethod pcmk-redirect $4 && ccs -f /etc/cluster/cluster.conf --addfenceinst pcmk $2 pcmk-redirect port=$2 && ccs -f /etc/cluster/cluster.conf --addfenceinst pcmk $4 pcmk-redirect port=$4 && break;;
+        No ) break;;
+    esac
+done
 
 #Configure firewall for CoroSync pass-through (According to Red Hat Cluster Suite Requirements)
 echo "Configure Linux firewall pass-through for cluster services?"
