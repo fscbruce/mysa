@@ -20,9 +20,11 @@ echo "  ___ _         _              ___             _               _          
 echo " / __| |_  _ __| |_ ___ _ _   / __|___ _ _  __| |_ _ _ _  _ __| |_ ___ _ _ "
 echo "| (__| | || (_-<  _/ -_) '_| | (__/ _ \ ' \(_-<  _| '_| || / _|  _/ _ \ '_|"
 echo " \___|_|\_,_/__/\__\___|_|    \___\___/_||_/__/\__|_|  \_,_\__|\__\___/_|  "
+echo
 echo "        +-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+ +-+-+-+-+"
 echo "        |X|c|h|a|n|g|i|n|g| |M|a|l|a|y|s|i|a| |S|d|n|.| |B|h|d|.|"
 echo "        +-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+ +-+-+-+-+"
+echo
 echo "This script has only been tested with CentOS 6.4 x64 minimal install. Use at your own risk."
 
 [ $# -eq 0 ] && echo $_Usage && echo && exit
@@ -37,6 +39,7 @@ echo "Node 1 ip address has been set to: $3"
 echo "Node 2 hostname has been set to: $4"
 echo "Node 2 ip address has been set to: $5"
 [ -z "$6" ] || [ -z "$7" ] || echo "ClusterIP resource will be created: $6 /$7"
+echo "Please ensure Linux iptables firewall service is running"
 echo "Proceed with installation?"
 select yn in "Yes" "No"; do
     case $yn in
@@ -47,6 +50,13 @@ done
 
 # Distribution maintenance
 echo "Performing distribution maintenance..."
+
+#Install ELRepo, EPEL, OpenSuse Linux HA repositories
+# rpm --import http://elrepo.org/RPM-GPG-KEY-elrepo.org
+# rpm -Uvh http://elrepo.org/elrepo-release-6-5.el6.elrepo.noarch.rpm
+# rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+#bash -c "wget -P /etc/yum.repos.d/ http://download.opensuse.org/repositories/network:/ha-clustering/RedHat_RHEL-6/network:ha-clustering.repo"
+
 yum update -y
 
 #Installation of basic tools
