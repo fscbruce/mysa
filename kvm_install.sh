@@ -1,5 +1,5 @@
 #!/bin/bash
-# script is configured to use the root user
+# Assumptions: This script assumes that you will be using the root user to manage kvm. For now, to customize for your user, replace root below with your username.
 yum install kvm kmod-kvm libvirt qemu virt-manager -y
 modprobe kvm-intel
 lsmod | grep kvm
