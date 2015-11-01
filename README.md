@@ -1,4 +1,5 @@
 mysa
 ====
-These scripts are written and maintained by Bruce Dargus, no longer affiliated with Xchanging Malaysia Sdn. Bhd. in any way.
+These scripts were written by Bruce Dargus. 
+
 Kindly direct feedback to dargus@foldingsky.com
